@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="angularSort">
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<script src="js/app.js"></script>
+	<title>Angular Sort</title>
+</head>
+<body>
+	
+	<div ng-controller="SellBookCtrl">
+		<h1>{{book.name}}</h1>
+		<h4>To Sell</h4>
+		<table>
+		 <thead>
+		  <tr>
+		   <th>Source</th>
+		   <th ng-click="sortBy('value')">Value</th>
+		  </tr>
+		 </thead>
+		 <tbody>
+		  <tr ng-repeat="source in book.sources | orderBy:predicate:reverse">
+		   <td>{{source.title}}</td>
+		   <td>{{source.value | currency}}</td>
+		  </tr>
+		 </tbody>
+		</table>
+	</div>
+
+</body>
+</html>
+
